@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dog Breed Browser</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+
+  <header>
+    <a href="/" class="home-btn">← Home</a>
+    <h1>🐕 Dog Breed Browser</h1>
+    <p>Powered by the Dog CEO API</p>
+  </header>
+
+  <main>
+    <!-- Search form -->
+    <div class="search-card">
+      <h2>Choose a breed</h2>
+      <form action="/routes/dogs" method="GET" class="form-row">
+        <select name="breed" required>
+          <option value="" disabled <%= !selectedBreed ? 'selected' : '' %>>Select a breed…</option>
+          <% breeds.forEach(breed => { %>
+            <option value="<%= breed %>" <%= selectedBreed === breed ? 'selected' : '' %>>
+              <%= breed.charAt(0).toUpperCase() + breed.slice(1) %>
+            </option>
+          <% }) %>
+        </select>
+        <button type="submit">View Dogs</button>
+      </form>
+    </div>
+
+    <!-- Error -->
+    <% if (error) { %>
+      <div class="error-box"><strong>Oops:</strong> <%= error %></div>
+    <% } %>
+
+    <!-- Results -->
+    <% if (selectedBreed && images.length > 0) { %>
+      <p class="results-heading">
+        Photos of <span class="breed-tag"><%= selectedBreed %></span>
+      </p>
+      <div class="dog-grid">
+        <% images.forEach(imgUrl => { %>
+          <div class="dog-card">
+            <img src="<%= imgUrl %>" alt="<%= selectedBreed %> dog" loading="lazy" />
+          </div>
+        <% }) %>
+      </div>
+
+    <% } else if (!selectedBreed) { %>
+      <div class="state-box">
+        <div class="icon">🐾</div>
+        <p>Pick a breed above to see some pups!</p>
+      </div>
+    <% } %>
+  </main>
+
+</body>
+</html>

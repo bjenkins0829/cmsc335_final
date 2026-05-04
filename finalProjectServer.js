@@ -9,12 +9,13 @@ if (process.argv.length != 3) {
   process.exit(1);
 }
 
-const app = express(); 
+const app = express();
 app.set("view engine", "ejs");
 app.set("views", path.resolve(__dirname, "templates"));
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(path.resolve(__dirname)));
 
-app.use("/routes", routes)
+app.use("/routes", routes);
 
 app.get("/", (request, response) => {
   response.render("index");
@@ -25,6 +26,8 @@ app.listen(PORT_NUMBER, (err) => {
   if (err) {
     console.log("Starting server failed.\n");
   } else {
-    console.log(`Web server started and running at: http://localhost:${PORT_NUMBER}`);
+    console.log(
+      `Web server started and running at: http://localhost:${PORT_NUMBER}`,
+    );
   }
 });
