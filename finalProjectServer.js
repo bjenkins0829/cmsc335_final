@@ -2,12 +2,15 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const routes = require("./routes/routes");
+const connectDB = require("./db");
 
 process.stdin.setEncoding("utf8");
 if (process.argv.length != 3) {
   process.stdout.write("Usage finalProjectServer.js PORT_NUMBER");
   process.exit(1);
 }
+
+connectDB();
 
 const app = express();
 app.set("view engine", "ejs");

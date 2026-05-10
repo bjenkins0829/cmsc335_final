@@ -1,16 +1,46 @@
 <!doctype html>
 <html lang="en">
-
 <head>
 	<meta charset="utf-8" />
-	<title>Final Project</title>
-	<link rel="stylesheet" href="../styles.css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>View Data - Final Project</title>
+	<link rel="stylesheet" href="/styles.css" />
 </head>
-
 <body>
-	<h1>View Data</h1>
+	<header>
+		<a href="/" class="home-btn">← Home</a>
+		<h1>📊 Registered Users</h1>
+		<p>Data retrieved from MongoDB</p>
+	</header>
 
-  <a href="/">Home</a>
+	<main>
+		<% if (users && users.length > 0) { %>
+			<div style="background: var(--card-bg); border: 1.5px solid #e8d9c5; border-radius: 16px; padding: 2rem; box-shadow: var(--shadow);">
+				<table style="width: 100%; border-collapse: collapse; text-align: left;">
+					<thead>
+						<tr style="border-bottom: 2px solid #d9c8b4;">
+							<th style="padding: 1rem;">Name</th>
+							<th style="padding: 1rem;">Email</th>
+							<th style="padding: 1rem;">Favorite Breed</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% users.forEach(user => { %>
+							<tr style="border-bottom: 1px solid #e8d9c5;">
+								<td style="padding: 1rem;"><%= user.name %></td>
+								<td style="padding: 1rem;"><%= user.email %></td>
+								<td style="padding: 1rem;"><%= user.favoriteBreed || 'N/A' %></td>
+							</tr>
+						<% }) %>
+					</tbody>
+				</table>
+			</div>
+		<% } else { %>
+			<div class="state-box">
+				<div class="icon">📭</div>
+				<p>No users found in the database. Go sign up!</p>
+			</div>
+		<% } %>
+	</main>
 </body>
-
 </html>

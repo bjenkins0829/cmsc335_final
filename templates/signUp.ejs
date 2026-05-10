@@ -1,16 +1,53 @@
 <!doctype html>
 <html lang="en">
-
 <head>
 	<meta charset="utf-8" />
-	<title>Final Project</title>
-	<link rel="stylesheet" href="../styles.css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Sign Up - Final Project</title>
+	<link rel="stylesheet" href="/styles.css" />
 </head>
-
 <body>
-	<h1>Sign Up</h1>
+	<header>
+		<a href="/" class="home-btn">← Home</a>
+		<h1>✏️ Sign Up</h1>
+		<p>Join the Dog Breed Browser</p>
+	</header>
 
-  <a href="/">Home</a>
+	<main>
+		<div class="search-card">
+			<h2>Create an Account</h2>
+			
+			<% if (message) { %>
+				<div class="state-box" style="padding: 1rem; color: #d4822a; font-weight: bold;">
+					<%= message %>
+				</div>
+			<% } %>
+			
+			<% if (error) { %>
+				<div class="error-box">
+					<strong>Error:</strong> <%= error %>
+				</div>
+			<% } %>
+
+			<form action="/routes/signUp" method="POST" style="display: flex; flex-direction: column; gap: 1rem;">
+				<div style="display: flex; flex-direction: column; gap: 0.5rem;">
+					<label for="name">Name:</label>
+					<input type="text" id="name" name="name" required style="padding: 0.75rem; border: 1.5px solid #d9c8b4; border-radius: 10px; font-family: 'DM Sans', sans-serif;">
+				</div>
+				
+				<div style="display: flex; flex-direction: column; gap: 0.5rem;">
+					<label for="email">Email:</label>
+					<input type="email" id="email" name="email" required style="padding: 0.75rem; border: 1.5px solid #d9c8b4; border-radius: 10px; font-family: 'DM Sans', sans-serif;">
+				</div>
+
+				<div style="display: flex; flex-direction: column; gap: 0.5rem;">
+					<label for="favoriteBreed">Favorite Dog Breed:</label>
+					<input type="text" id="favoriteBreed" name="favoriteBreed" style="padding: 0.75rem; border: 1.5px solid #d9c8b4; border-radius: 10px; font-family: 'DM Sans', sans-serif;">
+				</div>
+
+				<button type="submit" style="margin-top: 1rem;">Submit Application</button>
+			</form>
+		</div>
+	</main>
 </body>
-
 </html>

@@ -2,8 +2,10 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
 const router = express.Router();
+const User = require("../models/User");
+
 require("dotenv").config({
-  path: path.resolve(__dirname, ".env"),
+  path: path.resolve(__dirname, "../.env"),
 });
 // const { MongoClient, ServerApiVersion } = require("mongodb");
 // const databaseName = process.env.MONGO_DATABASE_NAME;
@@ -17,11 +19,41 @@ app.set("views", path.resolve(__dirname, "../templates"));
 app.use(bodyParser.urlencoded({ extended: false }));
 
 router.get("/signUp", (req, res) => {
-  res.render("signUp");
+  res.render("signUp", { message: null, error: null });
 });
 
-router.get("/viewData", (req, res) => {
-  res.render("viewData");
+// POST /routes/signUp — handle form submission and save to MongoDB
+router.post("/signUp", async (req, res) => {
+  try {
+    const { name, email, favoriteBreed } = req.body;
+    
+    // Create a new document using the Mongoose model
+    const newUser = new User({
+      name,
+      email,
+      favoriteBreed
+    });
+
+    // Save to database
+    await newUser.save();
+    
+    res.render("signUp", { message: "Successfully signed up! 🐾", error: null });
+  } catch (err) {
+    console.error(err);
+    res.render("signUp", { message: null, error: "Failed to save data. Please try again." });
+  }
+});
+
+// GET /routes/viewData — retrieve data from MongoDB and display it
+router.get("/viewData", async (req, res) => {
+  try {
+    // Fetch all users from the database
+    const users = await User.find({}).sort({ dateAdded: -1 });
+    res.render("viewData", { users });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Failed to retrieve data from database.");
+  }
 });
 
 // GET /routes/dogs — render the breed browser page
