@@ -4,9 +4,9 @@ const path = require("path");
 const router = express.Router();
 const User = require("../models/User");
 
-require("dotenv").config({
-  path: path.resolve(__dirname, "../.env"),
-});
+// require("dotenv").config({
+//   path: path.resolve(__dirname, "../.env"),
+// });
 // const { MongoClient, ServerApiVersion } = require("mongodb");
 // const databaseName = process.env.MONGO_DATABASE_NAME;
 // const collectionName = process.env.MONGO_COLLECTION_NAME;
