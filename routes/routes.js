@@ -18,12 +18,28 @@ app.set("view engine", "ejs");
 app.set("views", path.resolve(__dirname, "../templates"));
 app.use(bodyParser.urlencoded({ extended: false }));
 
-router.get("/signUp", (req, res) => {
-  res.render("signUp", { message: null, error: null });
+router.get("/signUp", async (req, res) => {
+  try {
+    const breedRes = await fetch("https://dog.ceo/api/breeds/list/all");
+    const breedData = await breedRes.json();
+    const breeds = Object.keys(breedData.message);
+    res.render("signUp", { message: null, error: null, breeds});
+  } catch (err) {
+    console.error(err);
+    res.render("signUp", {message: null, error: "Failed to fetch Data from Dog API.", breeds: []});
+  }
 });
 
 // POST /routes/signUp — handle form submission and save to MongoDB
 router.post("/signUp", async (req, res) => {
+  try {
+    const breedRes = await fetch("https://dog.ceo/api/breeds/list/all");
+    const breedData = await breedRes.json();
+    breeds = Object.keys(breedData.message);
+  } catch(err) {
+    res.render("signUp", {message: null, error: "Failed to fetch Data from Dog API.", breeds: []});
+  }
+
   try {
     const { name, email, favoriteBreed } = req.body;
     
@@ -37,10 +53,10 @@ router.post("/signUp", async (req, res) => {
     // Save to database
     await newUser.save();
     
-    res.render("signUp", { message: "Successfully signed up! 🐾", error: null });
+    res.render("signUp", { message: "Successfully signed up! 🐾", error: null, breeds });
   } catch (err) {
     console.error(err);
-    res.render("signUp", { message: null, error: "Failed to save data. Please try again." });
+    res.render("signUp", { message: null, error: "Failed to save data. Please try again.", breeds });
   }
 });
 

@@ -42,7 +42,13 @@
 
 				<div style="display: flex; flex-direction: column; gap: 0.5rem;">
 					<label for="favoriteBreed">Favorite Dog Breed:</label>
-					<input type="text" id="favoriteBreed" name="favoriteBreed" style="padding: 0.75rem; border: 1.5px solid #d9c8b4; border-radius: 10px; font-family: 'DM Sans', sans-serif;">
+					<select id="favoriteBreed" name="favoriteBreed" style="padding: 0.75rem; border: 1.5px solid #d9c8b4; border-radius: 10px; font-family: 'DM Sans', sans-serif;">
+						<option value="" disabled selected>Select a breed…</option>
+						<% breeds.forEach(breed => { %>
+							<option value="<%= breed %>"><%= breed.charAt(0).toUpperCase() + breed.slice(1) %></option>
+						<% }) %>
+					</select>
+					<!-- <input type="text" id="favoriteBreed" name="favoriteBreed" style="padding: 0.75rem; border: 1.5px solid #d9c8b4; border-radius: 10px; font-family: 'DM Sans', sans-serif;"> -->
 				</div>
 
 				<button type="submit" style="margin-top: 1rem;">Submit Application</button>
