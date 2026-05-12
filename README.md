@@ -6,7 +6,7 @@
 
 {Brandon Jenkins} ({directory-id})
 {Yuji Wexler} ({118888194})
-{Kevin Lin} ({directory-id})
+{Kevin Lin} ({118747170})
 {Jesse Chen} ({118574288})
 
 **App Description:** { Allows users to view images of dog breeds, make an account with their favorite breed, and see their's and other's accounts. }
