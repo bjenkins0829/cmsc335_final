@@ -2,16 +2,21 @@
 
 **Submitted By:** {submitted-by} ({directory-id})
 
-**Group Members:** {group-member} ({directory-id}) ...
+**Group Members:** 
 
-**App Description:** {description}
+{Brandon Jenkins} ({directory-id})
+{Yuji Wexler} ({directory-id})
+{Kevin Lin} ({directory-id})
+{Jesse Chen} ({118574288})
 
-**YouTube Video Link:** {youtube-link}
+**App Description:** {Allows users to view images of dog breeds, make an account with their favorite breed, and see their's and other's accounts.}
 
-**APIs:** {api-information} ({link-to-api}) ...
+**YouTube Video Link:** {https://www.youtube.com/watch?v=tz8aukHjb08}
 
-**Contact Email:** {contact-email}
+**APIs:** {Dog CEO} ({https://dog.ceo/dog-api/})
 
-**Deployed App Link:** {app-link}
+**Contact Email:** {jchen120@terpmail.umd.edu}
 
-**AI Use:** {ai-use}
+**Deployed App Link:** {https://cmsc335-final-luwq.onrender.com/}
+
+**AI Use:** {1. Claude (Standard), 2. Gemini}
