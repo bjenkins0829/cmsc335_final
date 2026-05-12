@@ -4,7 +4,7 @@
 
 **Group Members:** 
 
-{Brandon Jenkins} ({directory-id})
+{Brandon Jenkins} ({118640341})
 {Yuji Wexler} ({118888194})
 {Kevin Lin} ({118747170})
 {Jesse Chen} ({118574288})
