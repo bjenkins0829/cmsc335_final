@@ -9,14 +9,14 @@
 {Kevin Lin} ({directory-id})
 {Jesse Chen} ({118574288})
 
-**App Description:** {Allows users to view images of dog breeds, make an account with their favorite breed, and see their's and other's accounts.}
+**App Description:** { Allows users to view images of dog breeds, make an account with their favorite breed, and see their's and other's accounts. }
 
-**YouTube Video Link:** {https://www.youtube.com/watch?v=tz8aukHjb08}
+**YouTube Video Link:** { https://www.youtube.com/watch?v=tz8aukHjb08 }
 
-**APIs:** {Dog CEO} ({https://dog.ceo/dog-api/})
+**APIs:** {Dog CEO} ({ https://dog.ceo/dog-api/ })
 
-**Contact Email:** {jchen120@terpmail.umd.edu}
+**Contact Email:** { jchen120@terpmail.umd.edu }
 
-**Deployed App Link:** {https://cmsc335-final-luwq.onrender.com/}
+**Deployed App Link:** { https://cmsc335-final-luwq.onrender.com/ }
 
-**AI Use:** {1. Claude (Standard), 2. Gemini}
+**AI Use:** { 1. Claude (Not Claude Code), 2. Gemini }
