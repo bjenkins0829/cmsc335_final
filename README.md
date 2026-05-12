@@ -1,13 +1,13 @@
 # Final Project
 
-**Submitted By:** {submitted-by} ({directory-id})
+**Submitted By:** {Jesse Chen} ({jchen120})
 
 **Group Members:** 
 
-{Brandon Jenkins} ({118640341})
-{Yuji Wexler} ({118888194})
-{Kevin Lin} ({118747170})
-{Jesse Chen} ({118574288})
+{Brandon Jenkins} ({bjenkins})
+{Yuji Wexler} ({Yuji})
+{Kevin Lin} ({klin0513})
+{Jesse Chen} ({jchen120})
 
 **App Description:** { Allows users to view images of dog breeds, make an account with their favorite breed, and see their's and other's accounts. }
 
